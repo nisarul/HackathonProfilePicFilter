@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon 2025 Profile Picture Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Hackathon 2025 Profile Picture Creator</h1>
+            <p>Customize your profile picture with frames, badges, and backgrounds!</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📸</div>
+                        <p>Drop your image here or click to browse</p>
+                        <input type="file" id="imageUpload" accept="image/*" hidden>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <div class="canvas-container">
+                    <canvas id="previewCanvas" width="400" height="400"></canvas>
+                </div>
+                <div class="controls">
+                    <button id="downloadBtn" class="btn btn-primary" disabled>
+                        💾 Download Picture
+                    </button>
+                    <button id="resetBtn" class="btn btn-secondary">
+                        🔄 Reset
+                    </button>
+                    <button id="loadSamplesBtn" class="btn btn-secondary">
+                        🎨 Use Sample Assets
+                    </button>
+                </div>
+                <div class="download-info">
+                    <small>💡 If download doesn't work, right-click the preview and "Save image as..."</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customization Options -->
+        <div class="customization-panel">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="frames">🖼️ Frames</button>
+                <button class="tab-btn" data-tab="badges">🏆 Badges</button>
+                <!-- <button class="tab-btn" data-tab="backgrounds">🌈 Backgrounds</button> -->
+            </div>
+
+            <!-- Frames Tab -->
+            <div class="tab-content active" id="frames-tab">
+                <h3>Choose a Frame</h3>
+                <div class="options-grid" id="framesGrid">
+                    <div class="option-item no-selection active" data-type="frame" data-value="">
+                        <div class="option-preview">No Frame</div>
+                    </div>
+                    <!-- Frame options will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Badges Tab -->
+            <div class="tab-content" id="badges-tab">
+                <h3>Choose a Badge</h3>
+                <div class="options-grid" id="badgesGrid">
+                    <div class="option-item no-selection active" data-type="badge" data-value="">
+                        <div class="option-preview">No Badge</div>
+                    </div>
+                    <!-- Badge options will be populated by JavaScript -->
+                </div>
+                <div class="badge-controls">
+                    <label>Badge Size: <input type="range" id="badgeSize" min="50" max="150" value="80"></label>
+                    <label>Badge Position: 
+                        <select id="badgePosition">
+                            <option value="top-left">Top Left</option>
+                            <option value="top-center">Top Center</option>
+                            <option value="top-right">Top Right</option>
+                            <option value="center-left">Center Left</option>
+                            <option value="center">Center</option>
+                            <option value="center-right">Center Right</option>
+                            <option value="bottom-left">Bottom Left</option>
+                            <option value="bottom-center">Bottom Center</option>
+                            <option value="bottom-right">Bottom Right</option>
+                            <option value="custom">Custom Position</option>
+                        </select>
+                    </label>
+                    <div id="customPositionControls" style="display: none;">
+                        <label>X Position: <input type="range" id="badgeX" min="0" max="100" value="20">%</label>
+                        <label>Y Position: <input type="range" id="badgeY" min="0" max="100" value="20">%</label>
+                    </div>
+                    <button id="dragModeBtn" class="btn btn-secondary" style="margin-top: 10px;">
+                        🖱️ Enable Drag Mode
+                    </button>
+                </div>
+            </div>
+
+            <!-- Backgrounds Tab - DISABLED FOR NOW -->
+            <!--
+            <div class="tab-content" id="backgrounds-tab">
+                <h3>Choose a Background</h3>
+                <div class="options-grid" id="backgroundsGrid">
+                    <div class="option-item no-selection active" data-type="background" data-value="">
+                        <div class="option-preview">Original Background</div>
+                    </div>
+                    <!-- Background options will be populated by JavaScript -->
+                </div>
+                <div class="background-controls">
+                    <label>Background Blur: <input type="range" id="backgroundBlur" min="0" max="20" value="0"></label>
+                </div>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
